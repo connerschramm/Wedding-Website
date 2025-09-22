@@ -261,9 +261,6 @@
             document.getElementById("countdown").innerHTML = days + "d " + hours + "h ";
             if (distance < 0) { clearInterval(x); document.getElementById("countdown").innerHTML = "MARRIED!!!"; }
         },1000);
-        document.getElementById('rsvp-form').addEventListener('submit', function(e) {
-            e.preventDefault(); alert('Thank you for your RSVP! We look forward to celebrating with you.'); this.reset();
-        });
     </script>
     <script>
         // Smooth close handler
