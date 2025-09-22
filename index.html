@@ -1,0 +1,211 @@
+<!DOCTYPE HTML>
+<!--
+    Dimension by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Reid & Megan's Wedding</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        /* Countdown, party list, FAQ styles unchanged */
+        #countdown { font-size: 1.25em; color: #fff; margin: 1em 0; }
+        .party-list ul { list-style: disc outside; margin-left: 1.5em; }
+        .faq dt { font-weight: bold; margin-top: 1em; }
+        .faq dd { margin-left: 1em; margin-bottom: 0.5em; }
+        /* Collage Gallery grid */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); grid-auto-rows: 100px; gap: 10px; }
+        .gallery img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+        .span2x2 { grid-column: span 4; grid-row: span 4; }
+        .span2x1 { grid-column: span 4; grid-row: span 2; }
+        .span1x2 { grid-column: span 2; grid-row: span 4; }
+        .spanSmall { grid-column: span 2; grid-row: span 2; }
+		.spanWide { grid-column: span 6; grid-row: span 4;}
+        /* Lightbox overlay */
+        article.image-viewer { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); display: none; justify-content: center; align-items: center; text-align: center; z-index: 2000; }
+        article.image-viewer:target { display: flex; }
+        article.image-viewer img { max-width: 90%; max-height: 90%; border-radius: 4px; box-shadow: 0 0 20px rgba(0,0,0,0.5); }
+        article.image-viewer .close { position: absolute; top: 20px; right: 30px; font-size: 2em; color: #fff; text-decoration: none; }
+    </style>
+</head>
+<body class="is-preload">
+    <div id="wrapper">
+        <header id="header">
+            <div class="logo"><span class="icon solid fa-ring"></span></div>
+            <div class="content"><div class="inner">
+                <h1>Reid & Megan</h1>
+                <p>Join us in celebrating our wedding on December 20, 2025 • Greeneville, TN</p>
+            </div></div>
+            <nav><ul>
+                <li><a href="#details">Details</a></li>
+                <li><a href="#story">Our Story</a></li>
+                <li><a href="#party">Wedding Party</a></li>
+                <li><a href="#rsvp">RSVP</a></li>
+                <li><a href="#registry">Registry</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#things">Things To Do</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul></nav>
+            <p class="logo" id="countdown"></p>
+        </header>
+        <div id="main">
+            <!-- Details -->
+            <article id="details">
+                <h2 class="major">The Wedding Day</h2>
+                <div class="map-container" style="width:100%;height:400px;filter:grayscale(100%);">
+                    <iframe src="https://www.google.com/maps?q=240+Joe+Johnston+Lane+Greeneville+TN+37743&output=embed" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen aria-hidden="false" tabindex="0"></iframe>
+                </div>
+                <p>Our ceremony will begin at <strong>3:00 PM</strong> at The Homeplace at Johnston Farm. The reception will follow with dinner, drinks, and dancing. Dress code is semi-formal. We encourage comfortable shoes and big smiles.</p>
+            </article>
+            <!-- Our Story -->
+            <article id="story">
+                <h2 class="major">Our Story</h2>
+                <span class="image main"><img src="images/pic03.jpg" alt="Our Story" /></span>
+                <p>Megan and Reid met in May 2020 at a week-long job training in Champaign, Illinois, for a summer science camp that was set to travel to different Air Force and Army bases. While the training was intense, Reid found time to stay up late chatting with Megan—so late, in fact, that he missed his flight home on Saturday morning! Thankfully, Megan was there to save the day, driving him to the St. Louis airport to catch a new flight.</p>
+                <p>As it turned out, God had plans. That summer job was canceled due to COVID, leaving both with a lot of unexpected free time. Megan decided to spend almost a month with Reid in Johnson City, TN, and it was during this time that their connection deepened.</p>
+                <p>At the time they met, Megan had just graduated from Webster University in Missouri, while Reid was attending ETSU in Johnson City. Despite the distance, they made their relationship work, driving over 600 miles to see each other every few weeks. Megan moved to Johnson City in January of 2021. Since then, Johnson City has become home for them both.</p>
+                <p>Fast forward to August 24, 2024, and Reid managed to pull off the surprise of a lifetime. Megan thought they were heading up to Beech Mountain for a double date with John Henry and Randi, but instead, Reid proposed—and both sets of parents were there to witness the special moment! It was a day filled with joy, love, awkwardness, and cheeks hurting from so many smiles!</p>
+                <p>Both Megan and Reid teach in Bristol and Kingsport, where their students have been eagerly awaiting this exciting news. At home, they share their life with Marshmallow, their spoiled (but very loved) cat.</p>
+                <p>They can’t wait to start the next chapter together, surrounded by family and friends on their wedding day!</p>
+            </article>
+            <!-- Wedding Party -->
+            <article id="party">
+                <h2 class="major">Wedding Party</h2>
+                <div class="party-list">
+                    <div class="field half"><h3>Bridal Party</h3><ul><li><strong>Maid of Honor:</strong> [Name]</li><li><strong>Bridesmaid:</strong> [Name]</li><li><strong>Bridesmaid:</strong> [Name]</li></ul></div>
+                    <div class="field half"><h3>Groom's Party</h3><ul><li><strong>Best Man:</strong> [Name]</li><li><strong>Groomsman:</strong> [Name]</li><li><strong>Groomsman:</strong> [Name]</li></ul></div>
+                </div>
+            </article>
+            <!-- RSVP -->
+            <article id="rsvp">
+                <h2 class="major">RSVP</h2>
+                <form name="rsvp" method="POST" data-netlify="true" id="rsvp-form">
+                    <input type="hidden" name="form-name" value="rsvp" />
+                    <div class="fields">
+                        <div class="field half"><label for="rsvp-name">Name</label><input type="text" name="name" id="rsvp-name" placeholder="Your Name" required /></div>
+                        <div class="field half"><label for="rsvp-email">Email</label><input type="email" name="email" id="rsvp-email" placeholder="Your Email" required /></div>
+                        <div class="field"><label for="rsvp-attending">Will you attend?</label><select name="attending" id="rsvp-attending" required><option value="">-- Select --</option><option value="yes">Yes, of course!</option><option value="no">Sorry, we can’t make it</option></select></div>
+                        <div class="field half"><label for="rsvp-guests">Number of guests</label><select name="guests" id="rsvp-guests" required><option value="">-- Select --</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></div>
+                        <div class="field half"><label for="rsvp-diet">Dietary restrictions</label><input type="text" name="diet" id="rsvp-diet" placeholder="e.g., Vegetarian, Gluten-free" /></div>
+                    </div>
+                    <ul class="actions"><li><input type="submit" value="Submit RSVP" class="button primary" /></li></ul>
+                </form>
+            </article>
+            <!-- Registry -->
+            <article id="registry">
+                <h2 class="major">Registry</h2>
+                <div class="fields">
+                    <p>We are so grateful for your support! If you'd like to gift us, you can find our registries here:</p>
+                    <ul class="actions stacked">
+                        <li><a href="https://www.target.com/gift-registry/giftgiver?registryId=EXAMPLE" class="button">Target Registry</a></li>
+                        <li><a href="https://www.amazon.com/wedding/reid-megan" class="button">Amazon Registry</a></li>
+                        <li><a href="https://www.walmart.com/cp/wedding-registry" class="button">Walmart Registry</a></li>
+                    </ul>
+                </div>
+            </article>
+            <!-- Gallery -->
+            <article id="gallery">
+                <h2 class="major">Gallery</h2>
+                <div class="gallery">
+                    <a href="#gimg01" class="span2x2"><img src="images/gpic01.jpg" alt="Pic 1" /></a>
+                    <a href="#gimg02" class="span1x2"><img src="images/gpic02.jpg" alt="Pic 2" /></a>
+                    <a href="#gimg03" class="span1x2"><img src="images/gpic03.jpg" alt="Pic 3" /></a>
+                    <a href="#gimg04" class="span1x2"><img src="images/gpic04.jpg" alt="Pic 4" /></a>
+					<a href="#gimg07" class="span1x2"><img src="images/gpic07.jpg" alt="Pic 7" /></a>
+                    <a href="#gimg05" class="span2x2"><img src="images/gpic05.jpg" alt="Pic 5" /></a>
+                    <a href="#gimg06" class="span1x2"><img src="images/gpic06.jpg" alt="Pic 6" /></a>
+                    <a href="#gimg08" class="span2x1"><img src="images/gpic08.jpg" alt="Pic 8" /></a>
+					<a href="#gimg12" class="spanSmall"><img src="images/gpic12.jpg" alt="Pic 12" /></a>
+                    <a href="#gimg09" class="span2x2"><img src="images/gpic09.jpg" alt="Pic 9" /></a>
+                    <a href="#gimg10" class="span1x2"><img src="images/gpic10.jpg" alt="Pic 10" /></a>
+                    <a href="#gimg11" class="span1x2"><img src="images/gpic11.jpg" alt="Pic 11" /></a>
+                    <a href="#gimg13" class="span2x2"><img src="images/gpic13.jpg" alt="Pic 13" /></a>
+                    <a href="#gimg14" class="span1x2"><img src="images/gpic14.jpg" alt="Pic 14" /></a>
+                    <a href="#gimg15" class="span2x2"><img src="images/gpic15.jpg" alt="Pic 15" /></a>
+					<!--Add more as need up to 20. If more than 20 need to add more articles -->
+                </div>
+            </article>
+            <!-- Things To Do -->
+            <article id="things">
+                <h2 class="major">Things To Do</h2>
+                <div class="fields">
+                    <p>Explore Greeneville and the surrounding area during your visit:</p>
+                    <ul>
+                        <li><strong>Downtown Greeneville:</strong> Shops, cafes, and historic sites.</li>
+                        <li><strong>Andrew Johnson NHS:</strong> Presidential home and museum.</li>
+                        <li><strong>Long Hunter State Park:</strong> Scenic trails and waterfalls (30 min drive).</li>
+                        <li><strong>Local Dining:</strong> Barbecue, farm-to-table fare, and craft breweries.</li>
+                    </ul>
+                </div>
+            </article>
+            <!-- FAQ -->
+            <article id="faq">
+                <h2 class="major">FAQ</h2>
+                <dl class="faq">
+                    <dt>What should I wear?</dt>
+                    <dd>Semi-formal attire; comfortable shoes recommended for outdoor areas.</dd>
+                    <dt>Is parking available?</dt>
+                    <dd>Yes, free parking is available on-site at The Homeplace.</dd>
+                    <dt>Are children welcome?</dt>
+                    <dd>Yes! We’ll have a kids’ activity corner during the reception.</dd>
+                    <dt>Can I take photos during the ceremony?</dt>
+                    <dd>Please refrain from flash photography during the ceremony to allow our photographer to capture special moments.</dd>
+                </dl>
+            </article>
+            <!-- Lightbox articles -->
+            <article id="gimg01" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic01.jpg" alt="Pic 1"></article>
+            <article id="gimg02" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic02.jpg" alt="Pic 2"></article>
+            <article id="gimg03" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic03.jpg" alt="Pic 3"></article>
+            <article id="gimg04" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic04.jpg" alt="Pic 4"></article>
+            <article id="gimg05" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic05.jpg" alt="Pic 5"></article>
+            <article id="gimg06" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic06.jpg" alt="Pic 6"></article>
+            <article id="gimg07" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic07.jpg" alt="Pic 7"></article>
+            <article id="gimg08" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic08.jpg" alt="Pic 8"></article>
+            <article id="gimg09" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic09.jpg" alt="Pic 9"></article>
+            <article id="gimg10" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic10.jpg" alt="Pic 10"></article>
+            <article id="gimg11" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic11.jpg" alt="Pic 11"></article>
+            <article id="gimg12" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic12.jpg" alt="Pic 12"></article>
+            <article id="gimg13" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic13.jpg" alt="Pic 13"></article>
+            <article id="gimg14" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic14.jpg" alt="Pic 14"></article>
+            <article id="gimg15" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic15.jpg" alt="Pic 15"></article>
+            <article id="gimg16" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic16.jpg" alt="Pic 16"></article>
+            <article id="gimg17" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic17.jpg" alt="Pic 17"></article>
+            <article id="gimg18" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic18.jpg" alt="Pic 18"></article>
+            <article id="gimg19" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic19.jpg" alt="Pic 19"></article>
+            <article id="gimg20" class="image-viewer"><a href="#gallery" class="close">&times;</a><img src="images/gpic20.jpg" alt="Pic 20"></article>
+        </div>
+        <footer id="footer"><p>&copy; Reid &amp; Megan 2025.</p></footer>
+    </div>
+    <div id="bg"></div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Countdown Timer
+        var countDownDate = new Date("Dec 20, 2025 15:37:25").getTime();
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+            var days = Math.floor(distance/(1000*60*60*24));
+            var hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h ";
+            if (distance < 0) { clearInterval(x); document.getElementById("countdown").innerHTML = "MARRIED!!!"; }
+        },1000);
+        document.getElementById('rsvp-form').addEventListener('submit', function(e) {
+            e.preventDefault(); alert('Thank you for your RSVP! We look forward to celebrating with you.'); this.reset();
+        });
+    </script>
+    <script>
+        // Smooth close handler
+        document.querySelectorAll('article.image-viewer .close').forEach(el => el.addEventListener('click', function(e) {
+            e.preventDefault(); window.location.hash = 'gallery'; document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+        }));
+    </script>
+</body>
+</html>
