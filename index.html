@@ -84,10 +84,10 @@
 <article id="rsvp">
   <h2 class="major">RSVP</h2>
 
-  <form 
-    action="https://docs.google.com/forms/d/e/1FAIpQLSet-Uz5xhlb7Vq3dZulrKorwBfPhCt-sDQIDLxN1v5nismyQA/formResponse" 
-    method="POST" 
-    target="hidden_iframe" 
+  <form
+    action="https://docs.google.com/forms/d/e/1FAIpQLSet-Uz5xhlb7Vq3dZulrKorwBfPhCt-sDQIDLxN1v5nismyQA/formResponse"
+    method="POST"
+    target="hidden_iframe"
     id="rsvp-form"
   >
     <div class="fields">
@@ -103,29 +103,12 @@
 
       <div class="field">
         <label for="rsvp-attending">Will you attend?</label>
-        <select name="entry.1043374799" id="rsvp-attending" required>
-          <option value="">-- Select --</option>
-          <option value="Yes, of course!">Yes, of course!</option>
-          <option value="Sorry, we can’t make it">Sorry, we can’t make it</option>
-        </select>
+        <input type="text" name="entry.1043374799" id="rsvp-attending" placeholder='Type "Yes" or "No"' required />
       </div>
 
       <div class="field half">
         <label for="rsvp-guests">Number of guests</label>
-        <select name="entry.1480369285" id="rsvp-guests" required>
-          <option value="">-- Select --</option>
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
+        <input type="text" name="entry.1480369285" id="rsvp-guests" placeholder="e.g., 0, 1, 2" required />
       </div>
 
       <div class="field half">
@@ -134,31 +117,47 @@
       </div>
     </div>
 
+    <!-- If your Form collects email addresses, mirror to the special field -->
+    <input type="hidden" name="emailAddress" id="emailAddress">
+
     <ul class="actions">
       <li><input type="submit" value="Submit RSVP" class="button primary" /></li>
     </ul>
   </form>
 
-  <!-- Hidden iframe (submission target) -->
   <iframe name="hidden_iframe" style="display:none;"></iframe>
 
-  <!-- Thank you message -->
   <div id="thank-you" style="display:none; text-align:center; padding:1em;">
     <h3>🎉 Thank you!</h3>
     <p>Your RSVP has been recorded.</p>
   </div>
 
   <script>
-    document.getElementById("rsvp-form").addEventListener("submit", function() {
-      // Let the browser POST to Google
-      // Then hide the form and show the message
-      setTimeout(() => {
-        document.getElementById("rsvp-form").style.display = "none";
-        document.getElementById("thank-you").style.display = "block";
-      }, 1000);
-    });
+    (function () {
+      const f = document.getElementById('rsvp-form');
+      const emailInput = document.getElementById('rsvp-email');
+      const emailMirror = document.getElementById('emailAddress');
+      const ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSet-Uz5xhlb7Vq3dZulrKorwBfPhCt-sDQIDLxN1v5nismyQA/formResponse';
+
+      function forceSubmit(ev){
+        if (ev) { ev.stopImmediatePropagation?.(); ev.stopPropagation?.(); ev.preventDefault(); }
+        if (emailMirror && emailInput) emailMirror.value = emailInput.value || '';
+        f.action = ACTION;
+        f.target = 'hidden_iframe';
+        HTMLFormElement.prototype.submit.call(f);
+        setTimeout(() => {
+          f.style.display = 'none';
+          document.getElementById('thank-you').style.display = 'block';
+        }, 500);
+      }
+
+      f.addEventListener('submit', (e) => { if (!f.checkValidity()) return; forceSubmit(e); }, true);
+      const btn = f.querySelector('input[type="submit"],button[type="submit"]');
+      btn?.addEventListener('click', (e) => { if (!f.checkValidity()) return; forceSubmit(e); }, true);
+    })();
   </script>
-</article>                
+</article>
+                
             <!-- Registry -->
             <article id="registry">
                 <h2 class="major">Registry</h2>
