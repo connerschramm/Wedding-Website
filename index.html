@@ -84,10 +84,10 @@
 <article id="rsvp">
   <h2 class="major">RSVP</h2>
 
-  <form 
-    action="https://docs.google.com/forms/d/e/1FAIpQLSet-Uz5xhlb7Vq3dZulrKorwBfPhCt-sDQIDLxN1v5nismyQA/formResponse" 
-    method="POST" 
-    target="hidden_iframe" 
+  <form
+    action="https://docs.google.com/forms/d/e/1FAIpQLSet-Uz5xhlb7Vq3dZulrKorwBfPhCt-sDQIDLxN1v5nismyQA/formResponse"
+    method="POST"
+    target="hidden_iframe"
     id="rsvp-form"
   >
     <div class="fields">
@@ -100,46 +100,17 @@
         <label for="rsvp-email">Email</label>
         <input type="email" name="entry.1438500743" id="rsvp-email" placeholder="Your Email" required />
       </div>
-
-      <div class="field">
-        <label for="rsvp-attending">Will you attend?</label>
-        <select name="entry.1043374799" id="rsvp-attending" required>
-          <option value="">-- Select --</option>
-          <option value="Yes, of course!">Yes, of course!</option>
-          <option value="Sorry, we can’t make it">Sorry, we can’t make it</option>
-        </select>
-      </div>
-
-      <div class="field half">
-        <label for="rsvp-guests">Number of guests</label>
-        <select name="entry.1480369285" id="rsvp-guests" required>
-          <option value="">-- Select --</option>
-          <option value="0">0</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-        </select>
-      </div>
-
-      <div class="field half">
-        <label for="rsvp-diet">Dietary restrictions</label>
-        <input type="text" name="entry.520596931" id="rsvp-diet" placeholder="e.g., Vegetarian, Gluten-free" />
-      </div>
     </div>
+
+    <!-- If Google Form setting "Collect email addresses" is ON, this hidden field satisfies it -->
+    <input type="hidden" name="emailAddress" id="emailAddress">
 
     <ul class="actions">
       <li><input type="submit" value="Submit RSVP" class="button primary" /></li>
     </ul>
   </form>
 
-  <!-- Hidden iframe (submission target) -->
+  <!-- Hidden iframe prevents redirect -->
   <iframe name="hidden_iframe" style="display:none;"></iframe>
 
   <!-- Thank you message -->
@@ -149,16 +120,49 @@
   </div>
 
   <script>
-    document.getElementById("rsvp-form").addEventListener("submit", function() {
-      // Let the browser POST to Google
-      // Then hide the form and show the message
-      setTimeout(() => {
-        document.getElementById("rsvp-form").style.display = "none";
-        document.getElementById("thank-you").style.display = "block";
-      }, 1000);
-    });
+    (function () {
+      const f = document.getElementById('rsvp-form');
+      const emailInput = document.getElementById('rsvp-email');
+      const emailMirror = document.getElementById('emailAddress');
+
+      function forceSubmit(ev){
+        if (ev) {
+          ev.stopImmediatePropagation && ev.stopImmediatePropagation();
+          ev.stopPropagation && ev.stopPropagation();
+          ev.preventDefault();
+        }
+        // mirror visible email into Google's special emailAddress field (if the setting is on)
+        if (emailMirror && emailInput) emailMirror.value = emailInput.value || '';
+
+        // native submit (bypass any theme handlers)
+        HTMLFormElement.prototype.submit.call(f);
+
+        // UX: swap to thank-you
+        setTimeout(() => {
+          f.style.display = 'none';
+          const ty = document.getElementById('thank-you');
+          if (ty) ty.style.display = 'block';
+        }, 500);
+      }
+
+      // capture-phase submit to beat theme JS
+      f.addEventListener('submit', function(ev){
+        if (!f.checkValidity()) return;
+        forceSubmit(ev);
+      }, true);
+
+      // also capture the submit button click
+      const btn = f.querySelector('input[type="submit"], button[type="submit"]');
+      if (btn) {
+        btn.addEventListener('click', function(ev){
+          if (!f.checkValidity()) return;
+          forceSubmit(ev);
+        }, true);
+      }
+    })();
   </script>
-</article>                
+</article>
+                
             <!-- Registry -->
             <article id="registry">
                 <h2 class="major">Registry</h2>
