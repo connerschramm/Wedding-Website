@@ -83,18 +83,73 @@
             <!-- RSVP -->
             <article id="rsvp">
                 <h2 class="major">RSVP</h2>
-                <form name="rsvp" method="POST" data-netlify="true" id="rsvp-form">
-                    <input type="hidden" name="form-name" value="rsvp" />
-                    <div class="fields">
-                        <div class="field half"><label for="rsvp-name">Name</label><input type="text" name="name" id="rsvp-name" placeholder="Your Name" required /></div>
-                        <div class="field half"><label for="rsvp-email">Email</label><input type="email" name="email" id="rsvp-email" placeholder="Your Email" required /></div>
-                        <div class="field"><label for="rsvp-attending">Will you attend?</label><select name="attending" id="rsvp-attending" required><option value="">-- Select --</option><option value="yes">Yes, of course!</option><option value="no">Sorry, we can’t make it</option></select></div>
-                        <div class="field half"><label for="rsvp-guests">Number of guests</label><select name="guests" id="rsvp-guests" required><option value="">-- Select --</option><option value="0">0</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option></select></div>
-                        <div class="field half"><label for="rsvp-diet">Dietary restrictions</label><input type="text" name="diet" id="rsvp-diet" placeholder="e.g., Vegetarian, Gluten-free" /></div>
+                <form 
+                  action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSet-Uz5xhlb7Vq3dZulrKorwBfPhCt-sDQIDLxN1v5nismyQA/formResponse" 
+                  method="POST" 
+                  target="hidden_iframe" 
+                  id="rsvp-form"
+                >
+                  <div class="fields">
+                    <div class="field half">
+                      <label for="rsvp-name">Name</label>
+                      <input type="text" name="entry.1104523726" id="rsvp-name" placeholder="Your Name" required />
                     </div>
-                    <ul class="actions"><li><input type="submit" value="Submit RSVP" class="button primary" /></li></ul>
+              
+                    <div class="field half">
+                      <label for="rsvp-email">Email</label>
+                      <input type="email" name="entry.1438500743" id="rsvp-email" placeholder="Your Email" required />
+                    </div>
+              
+                    <div class="field">
+                      <label for="rsvp-attending">Will you attend?</label>
+                      <select name="entry.1043374799" id="rsvp-attending" required>
+                        <option value="">-- Select --</option>
+                        <option value="Yes, of course!">Yes, of course!</option>
+                        <option value="Sorry, we can’t make it">Sorry, we can’t make it</option>
+                      </select>
+                    </div>
+              
+                    <div class="field half">
+                      <label for="rsvp-guests">Number of guests</label>
+                      <select name="entry.1480369285" id="rsvp-guests" required>
+                        <option value="">-- Select --</option>
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                      </select>
+                    </div>
+              
+                    <div class="field half">
+                      <label for="rsvp-diet">Dietary restrictions</label>
+                      <input type="text" name="entry.520596931" id="rsvp-diet" placeholder="e.g., Vegetarian, Gluten-free" />
+                    </div>
+                  </div>
+              
+                  <ul class="actions">
+                    <li><input type="submit" value="Submit RSVP" class="button primary" /></li>
+                  </ul>
                 </form>
-            </article>
+              
+                <!-- hidden iframe prevents redirect to Google Forms confirmation page -->
+                <iframe name="hidden_iframe" style="display:none;"></iframe>
+              
+                <script>
+                  // optional: replace alert with a custom "thank you" message on your page
+                  document.getElementById("rsvp-form").addEventListener("submit", function() {
+                    setTimeout(() => {
+                      alert("✅ Thanks! Your RSVP has been recorded.");
+                    }, 500);
+                  });
+                </script>
+              </article>              
             <!-- Registry -->
             <article id="registry">
                 <h2 class="major">Registry</h2>
