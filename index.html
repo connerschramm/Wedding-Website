@@ -81,81 +81,84 @@
                 </div>
             </article>
             <!-- RSVP -->
-            <article id="rsvp">
-                <h2 class="major">RSVP</h2>
-                <form 
-                  action="https://docs.google.com/forms/d/e/1FAIpQLSet-Uz5xhlb7Vq3dZulrKorwBfPhCt-sDQIDLxN1v5nismyQA/formResponse" 
-                  method="POST" 
-                  target="hidden_iframe" 
-                  id="rsvp-form"
-                >
-                  <div class="fields">
-                    <div class="field half">
-                      <label for="rsvp-name">Name</label>
-                      <input type="text" name="entry.1104523726" id="rsvp-name" placeholder="Your Name" required />
-                    </div>
-              
-                    <div class="field half">
-                      <label for="rsvp-email">Email</label>
-                      <input type="email" name="entry.1438500743" id="rsvp-email" placeholder="Your Email" required />
-                    </div>
-              
-                    <div class="field">
-                      <label for="rsvp-attending">Will you attend?</label>
-                      <select name="entry.1043374799" id="rsvp-attending" required>
-                        <option value="">-- Select --</option>
-                        <option value="Yes, of course!">Yes, of course!</option>
-                        <option value="Sorry, we can’t make it">Sorry, we can’t make it</option>
-                      </select>
-                    </div>
-              
-                    <div class="field half">
-                      <label for="rsvp-guests">Number of guests</label>
-                      <select name="entry.1480369285" id="rsvp-guests" required>
-                        <option value="">-- Select --</option>
-                        <option value="0">0</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                      </select>
-                    </div>
-              
-                    <div class="field half">
-                      <label for="rsvp-diet">Dietary restrictions</label>
-                      <input type="text" name="entry.520596931" id="rsvp-diet" placeholder="e.g., Vegetarian, Gluten-free" />
-                    </div>
-                  </div>
-              
-                  <ul class="actions">
-                    <li><input type="submit" value="Submit RSVP" class="button primary" /></li>
-                  </ul>
-                </form>
-              
-                <!-- Hidden iframe to stop redirect -->
-                <iframe name="hidden_iframe" style="display:none;"></iframe>
-              
-                <!-- Swap form with thank-you message -->
-                <div id="thank-you" style="display:none; text-align:center; padding:1em;">
-                  <h3>🎉 Thank you!</h3>
-                  <p>Your RSVP has been recorded.</p>
-                </div>
-              
-                <script>
-                  document.getElementById("rsvp-form").addEventListener("submit", function(e) {
-                    e.preventDefault();
-                    this.submit(); // submit to Google
-                    this.style.display = "none"; // hide form
-                    document.getElementById("thank-you").style.display = "block"; // show message
-                  });
-                </script>
-              </article>                
+<article id="rsvp">
+  <h2 class="major">RSVP</h2>
+
+  <form 
+    action="https://docs.google.com/forms/d/e/1FAIpQLSet-Uz5xhlb7Vq3dZulrKorwBfPhCt-sDQIDLxN1v5nismyQA/formResponse" 
+    method="POST" 
+    target="hidden_iframe" 
+    id="rsvp-form"
+  >
+    <div class="fields">
+      <div class="field half">
+        <label for="rsvp-name">Name</label>
+        <input type="text" name="entry.1104523726" id="rsvp-name" placeholder="Your Name" required />
+      </div>
+
+      <div class="field half">
+        <label for="rsvp-email">Email</label>
+        <input type="email" name="entry.1438500743" id="rsvp-email" placeholder="Your Email" required />
+      </div>
+
+      <div class="field">
+        <label for="rsvp-attending">Will you attend?</label>
+        <select name="entry.1043374799" id="rsvp-attending" required>
+          <option value="">-- Select --</option>
+          <option value="Yes, of course!">Yes, of course!</option>
+          <option value="Sorry, we can’t make it">Sorry, we can’t make it</option>
+        </select>
+      </div>
+
+      <div class="field half">
+        <label for="rsvp-guests">Number of guests</label>
+        <select name="entry.1480369285" id="rsvp-guests" required>
+          <option value="">-- Select --</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+
+      <div class="field half">
+        <label for="rsvp-diet">Dietary restrictions</label>
+        <input type="text" name="entry.520596931" id="rsvp-diet" placeholder="e.g., Vegetarian, Gluten-free" />
+      </div>
+    </div>
+
+    <ul class="actions">
+      <li><input type="submit" value="Submit RSVP" class="button primary" /></li>
+    </ul>
+  </form>
+
+  <!-- Hidden iframe (submission target) -->
+  <iframe name="hidden_iframe" style="display:none;"></iframe>
+
+  <!-- Thank you message -->
+  <div id="thank-you" style="display:none; text-align:center; padding:1em;">
+    <h3>🎉 Thank you!</h3>
+    <p>Your RSVP has been recorded.</p>
+  </div>
+
+  <script>
+    document.getElementById("rsvp-form").addEventListener("submit", function() {
+      // Let the browser POST to Google
+      // Then hide the form and show the message
+      setTimeout(() => {
+        document.getElementById("rsvp-form").style.display = "none";
+        document.getElementById("thank-you").style.display = "block";
+      }, 1000);
+    });
+  </script>
+</article>                
             <!-- Registry -->
             <article id="registry">
                 <h2 class="major">Registry</h2>
