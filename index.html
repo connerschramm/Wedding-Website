@@ -268,5 +268,60 @@
             e.preventDefault(); window.location.hash = 'gallery'; document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
         }));
     </script>
+    <script>
+(function () {
+  const f = document.getElementById('rsvp-form');
+  if (!f) return;
+
+  // Ensure the hidden iframe exists
+  let hidden = document.querySelector('iframe[name="hidden_iframe"]');
+  if (!hidden) {
+    hidden = document.createElement('iframe');
+    hidden.name = 'hidden_iframe';
+    hidden.style.display = 'none';
+    document.body.appendChild(hidden);
+  }
+
+  // Force-submit function that bypasses any theme listeners
+  function forceSubmit(ev) {
+    // lock in correct action/target on every submit
+    f.action = 'https://docs.google.com/forms/d/e/1FAIpQLSet-Uz5xhlb7Vq3dZulrKorwBfPhCt-sDQIDLxN1v5nismyQA/formResponse';
+    f.target = 'hidden_iframe';
+
+    if (ev) {
+      // stop any other listeners (theme) from running
+      ev.stopImmediatePropagation();
+      ev.stopPropagation();
+    }
+
+    // call the native submit (not a possibly monkey-patched one)
+    HTMLFormElement.prototype.submit.call(f);
+
+    // UX: swap to thank-you
+    setTimeout(() => {
+      f.style.display = 'none';
+      const ty = document.getElementById('thank-you');
+      if (ty) ty.style.display = 'block';
+    }, 600);
+  }
+
+  // 1) Capture-phase submit to beat theme handlers
+  f.addEventListener('submit', function(ev) {
+    // Let HTML5 validation run; if invalid, browser will block submit anyway
+    if (!f.checkValidity()) return;
+    forceSubmit(ev);
+  }, true);
+
+  // 2) Also intercept the submit button click (some themes hook here)
+  const submitBtn = f.querySelector('input[type="submit"], button[type="submit"]');
+  if (submitBtn) {
+    submitBtn.addEventListener('click', function(ev) {
+      if (!f.checkValidity()) return;
+      forceSubmit(ev);
+    }, true);
+  }
+})();
+</script>
+
 </body>
 </html>
